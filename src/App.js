@@ -2,10 +2,9 @@ import faker from '@faker-js/faker'; //영어
 import faker_ko from '@faker-js/faker/locale/ko';
 import './App.css';
 import UserCard from './components/UserCard';
-
-
-function App() {
-  const userDatas = []
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+const userDatas = []
 
   while(userDatas.length < 5){
     userDatas.push({
@@ -17,15 +16,20 @@ function App() {
     })
   }
 
+
+function App() {
+  
   const userCards = userDatas.map((userData, idx) => {
-    return <UserCard userData={userData} idx={idx} />
+    return <Grid item xm={2} sm={2} md={4}>
+      <UserCard userData={userData} idx={idx} />
+      </Grid>
   })
   return (
-    <div className="App">
-      
+    <Container maxWidth="lg" sx={{p:1}}>
+      <Grid container spacing={{xs:2, md: 3}} columns={{xs: 4, sm: 8, md: 12}}>
         {userCards}
-      
-    </div>
+      </Grid>
+    </Container>
   );
 }
 
