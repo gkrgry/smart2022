@@ -17,23 +17,22 @@ function App() {
 
   const userCards = userDatas.map((userData) => {
 
-    return <>
+    return <div>
     <h4>{userData.name}</h4>
     <img src={userData.avatar} alt="페이커 이미지 입니다."></img>
     <h5>{userData.email}</h5>
         {userData.phoneNo} <br/>
         {userData.jobName}
-    </>
+    </div>
   })
 
 
   
-  console.log(userDatas);
   return (
     <div className="App">
-      <>
+      
         {userCards}
-      </>
+      
     </div>
   );
 }
