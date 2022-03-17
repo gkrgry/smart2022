@@ -22,7 +22,7 @@ function App() {
   }
 
   const userCards = userDatas.map((userData, idx) => {
-    return <Card sx={{ maxWidth: 345 }}>
+    return <Card key={idx} sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -35,7 +35,9 @@ function App() {
             이름 : {userData.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            직업은 : {userData.jobName}
+            직업 : {userData.jobName}<br/>
+            Email : {userData.email}<br/>
+            phone : {userData.phoneNo}<br/>
           </Typography>
         </CardContent>
       </CardActionArea>
