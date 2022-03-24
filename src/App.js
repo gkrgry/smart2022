@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Switch from '@mui/material/Switch';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 const userDatas = []
 
@@ -24,13 +24,23 @@ const userDatas = []
 function App() {
   // props  부모에게 받아서 쓰는것
   // state 나 자기 자신에서 선언해서 쓰는것
-  // const [count,setCount] = useState("디폴트값"); 공식인데 a
   const [useDarkMode, setUseDarkMode] = useState(true); //디폴트가 true
   const [count, setCount] = useState(0);
-  const handleButtonOnClick = () => {
-    setCount(count + 1);
+  const handleChange = (event) => {
+    console.log(event);
+    setUseDarkMode(useDarkMode? false:true);
+    //setUseDarkMode(event.target.checked) 위와 같음
   }
-
+  //생명주기와 관련된 함수
+  //아래 배열이 없으면 최초에 한번만 세팅
+  useEffect(() => {
+    console.log("render");
+  },[])
+  //useDarkMode가 들어가있니까 이 값이 변경될때 마다 세팅
+  useEffect(() => {
+    console.log("render");
+  },[useDarkMode])
+  
   const userCards = userDatas.map((userData, idx) => {
     return <Grid item xm={2} sm={2} md={4}>
       <UserCard userData={userData} idx={idx} />
@@ -50,6 +60,13 @@ function App() {
     color: 'text.primary',
     p: 1,
     }}>
+      <Switch
+      Checked={useDarkMode} 
+      onChange={handleChange}
+      inputProps={{'aria-label':'controlled'}}
+      >
+
+      </Switch>
       <Container maxWidth="lg" sx={{p:1}}>
       <Grid container spacing={{xs:2, md: 3}} columns={{xs: 4, sm: 8, md: 12}}>
         {userCards}
