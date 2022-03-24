@@ -1,7 +1,5 @@
 import './App.css';
-import UserCard from './components/UserCard';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import Switch from '@mui/material/Switch';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import { useEffect, useState } from 'react';

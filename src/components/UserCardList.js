@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React from 'react';
+import {useState} from 'react';
 import Grid from '@mui/material/Grid';
 import Pagination from '@mui/material/Pagination';
 import UserCard from './UserCard';
