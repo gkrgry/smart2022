@@ -1,5 +1,3 @@
-import faker from '@faker-js/faker'; //영어
-import faker_ko from '@faker-js/faker/locale/ko';
 import './App.css';
 import UserCard from './components/UserCard';
 import Container from '@mui/material/Container';
@@ -9,48 +7,23 @@ import {ThemeProvider, createTheme} from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Pagination from '@mui/material/Pagination';
-const userDatas = []
+import { makeUserDatas } from './Utils';
+import UserCardList from './components/UserCardList';
 
-const getRandomIntInclusive = (min, max) => {
-  min = Math.ceil(min);//ceil 올림처리
-  max = Math.floor(max);//floor 내림처리
-  return Math.floor(Math.random() * (max - min) + min);//random 0~0.999.... 
-  }
+const userDatas = makeUserDatas(5000);
 
-
-  while(userDatas.length < 5000){
-    userDatas.push({
-      avatar: `images/${getRandomIntInclusive(1,5)}.jpg`,
-      name: `${faker.name.lastName()} ${faker_ko.name.firstName()}`,
-      email: faker.internet.email(),
-      jobName: faker.name.jobTitle(),
-      phoneNo: faker_ko.phone.phoneNumber()
-    })
-  }
-
-  const paginate = (array, pageSize, pageNumber) => {
-    return array.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
-    }
+ 
 
 function App() {
-  const pageCountentCount = 9;
-
-
-  // props  부모에게 받아서 쓰는것
-  // state 나 자기 자신에서 선언해서 쓰는것
   const [useDarkMode, setUseDarkMode] = useState(true); //디폴트가 true
-  const [pageNo, setPageNo] = useState(1);
-  const [currentUserData, setCurrentUserData] = useState(paginate(userDatas, pageCountentCount, pageNo));
+      // props  부모에게 받아서 쓰는것
+    // state 나 자기 자신에서 선언해서 쓰는것
 
 
   const handleChange = (event) => {
     console.log(event);
     setUseDarkMode(useDarkMode? false:true);
     //setUseDarkMode(event.target.checked) 위와 같음
-  }
-  const handleChangePageNo = (event, value) => {
-    setPageNo(value);
-    setCurrentUserData(paginate(userDatas, pageCountentCount, value))
   }
 
 
@@ -65,11 +38,7 @@ function App() {
   },[useDarkMode])
   
 
-  const userCards = currentUserData.map((userData, idx) => {
-    return <Grid item xm={2} sm={2} md={4}>
-      <UserCard userData={userData} idx={idx} />
-      </Grid>
-  })
+
 
 
 
@@ -91,19 +60,9 @@ function App() {
       Checked={useDarkMode} 
       onChange={handleChange}
       inputProps={{'aria-label':'controlled'}}
-      >
-
-      </Switch>
+      />
       <Container maxWidth="lg" sx={{p:1}}>
-        <Grid container spacing={{xs:2, md: 3}} columns={{xs: 4, sm: 8, md: 12}}>
-        {userCards}
-        </Grid>
-        <Pagination 
-        color="primary" 
-        count={Math.ceil(userDatas.length / pageCountentCount)}
-        page={pageNo}
-        onChange={handleChangePageNo}
-        />
+        <UserCardList userDatas={userDatas} />
       </Container>
     </Box>
   </ThemeProvider>
