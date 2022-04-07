@@ -17,7 +17,7 @@ export const cityLatLon =[
     
 ]
 
-export const Weather_mapping_data={
+export const weather_mapping_data={
     ThunderstormIcon : {
         name: "폭우",
         icon: ThunderstormIcon,
