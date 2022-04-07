@@ -7,11 +7,9 @@ import { makeUserDatas } from './Utils';
 import UserCardList from './components/UserCardList';
 import axios from 'axios';
 import WeatherCard from './components/WeatherCard';
+import {cityLatLon} from './dataset/weatherData';
 
 const userDatas = makeUserDatas(5000);
-
-
-
 
 
 // axios.get("https://api.openweathermap.org/data/2.5/weather?lat=37.391109&lon=126.967785&lang=kr&units=metric&appid=e3e4cfbebd376feeec6e33c75454a739")
@@ -30,6 +28,7 @@ function App() {
 
     const [weatherData, setWeatherData] = useState(null);
     const [apiError, setApiError] = useState(null);
+    const [selectedCityDate, setSelectedCityData] = useState({ name: "안양",lat: 37.391109,lon: 126.967785});
 
 
 
@@ -39,7 +38,9 @@ function App() {
     //setUseDarkMode(event.target.checked) 위와 같음
   }
 
-
+  useEffect(() => {
+    
+  })
 
   useEffect(() => {
     const callApi = async () => {

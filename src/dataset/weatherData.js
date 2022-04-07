@@ -5,6 +5,17 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import UmbrellaIcon from '@mui/icons-material/Umbrella';
 import GrainIcon from '@mui/icons-material/Grain';
 
+export const cityLatLon =[
+    { name: "서울",lat: 37.532600,lon: 127.024612},
+    { name: "안양",lat: 37.391109,lon: 126.967785},
+    { name: "부산",lat: 35.166668,lon: 129.066666},
+    { name: "울산",lat: 35.549999,lon: 129.316666},
+    { name: "광주",lat: 35.835354,lon: 129.263885},
+    { name: "대구",lat: 35.866669,lon: 128.600006},
+    { name: "대전",lat: 36.351002,lon: 127.385002},
+    
+]
+
 export const weather_mapping_data={
     ThunderstormIcon : {
         name: "폭우",

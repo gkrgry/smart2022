@@ -13,7 +13,7 @@ function userCardList (props) {
     const [currentUserData, setCurrentUserData] = useState(paginate(props.userDatas, pageCountentCount, pageNo));
     
 
-    const handleChangePageNo = (event, value) => {
+    const HandleChangePageNo = (event, value) => {
         setPageNo(value);
         setCurrentUserData(paginate(props.userDatas, pageCountentCount, value))
       }
@@ -33,7 +33,7 @@ function userCardList (props) {
         color="primary" 
         count={Math.ceil(props.userDatas.length / pageCountentCount)}
         page={pageNo}
-        onChange={handleChangePageNo}
+        onChange={HandleChangePageNo}
         />
     ]
 }
