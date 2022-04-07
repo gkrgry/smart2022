@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
-import {weather_mapping_data} from "../dataset/WeatherData";
+import {Weather_mapping_data} from "../dataset/WeatherData";
 import Grid from '@mui/material/Grid';
 
 
@@ -10,9 +10,9 @@ function WeatherCard(props){
     const makeWeatherInfo = () =>{
         const {temp, temp_min, temp_max, feels_like, humidity} = weatherData.main;
         const {main, icon} = weatherData.weather[0];
-        console.log(weather_mapping_data[main]);
+        console.log(Weather_mapping_data[main]);
         
-        const parseWeatherData =weather_mapping_data[main] ? weather_mapping_data[main] : weather_mapping_data["Mist"]
+        const parseWeatherData =Weather_mapping_data[main] ? Weather_mapping_data[main] : Weather_mapping_data["Mist"]
 
         const iconUrl = "http://openweathermap.org/img/wn/";
         return <Grid item xm={2} sm={2} md={4}>
