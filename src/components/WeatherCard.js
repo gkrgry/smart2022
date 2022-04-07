@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
-import {weather_mapping_data} from "../dataset/weatherData";
+import {weather_mapping_data} from "../dataset/WeatherData";
+import Grid from '@mui/material/Grid';
 
 
 function WeatherCard(props){
@@ -14,17 +15,13 @@ function WeatherCard(props){
         const parseWeatherData =weather_mapping_data[main] ? weather_mapping_data[main] : weather_mapping_data["Mist"]
 
         const iconUrl = "http://openweathermap.org/img/wn/";
-        return <Box sx={{
-            bgcolor: 'Background.default',
-            color: 'text.primary',
-            p: 1,
-        }}>
+        return <Grid item xm={2} sm={2} md={4}>
             <Typography>{`현재날씨: ${parseWeatherData.name}`}</Typography>
             <parseWeatherData.icon sx={{fontSize: 125}}/>
             <img src={iconUrl+parseWeatherData.icon+'@2x.png'} />
             <Typography>{`현재온도: ${temp}℃ 체감온도: ${feels_like}℃ `}</Typography>
             <Typography>{`최저기온: ${temp_min}℃ 최고기온: ${temp_max}℃ 습도 : ${humidity} %`}</Typography>
-        </Box>
+        </Grid>
            
     }
     

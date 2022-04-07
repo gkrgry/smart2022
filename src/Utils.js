@@ -1,7 +1,9 @@
 import faker from '@faker-js/faker'; //영어
 import faker_ko from '@faker-js/faker/locale/ko';
 
-    const getRandomIntInclusive = (min, max) => {
+
+
+    export const getRandomInt = (min, max) => {
     min = Math.ceil(min);//ceil 올림처리
     max = Math.floor(max);//floor 내림처리
     return Math.floor(Math.random() * (max - min) + min);//random 0~0.999.... 
@@ -14,7 +16,7 @@ import faker_ko from '@faker-js/faker/locale/ko';
 
         while(userDatas.length < count){
             userDatas.push({
-              avatar: `images/${getRandomIntInclusive(1,5)}.jpg`,
+              avatar: `images/${getRandomInt(1,5)}.jpg`,
               name: `${faker.name.lastName()} ${faker_ko.name.firstName()}`,
               email: faker.internet.email(),
               jobName: faker.name.jobTitle(),

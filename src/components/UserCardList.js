@@ -1,11 +1,10 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import Grid from '@mui/material/Grid';
 import Pagination from '@mui/material/Pagination';
 import UserCard from './UserCard';
 import { paginate } from '../Utils'
 
-function userCardList (props) {
+function UserCardList (props) {
  
 
     const pageCountentCount = 9;
@@ -13,7 +12,7 @@ function userCardList (props) {
     const [currentUserData, setCurrentUserData] = useState(paginate(props.userDatas, pageCountentCount, pageNo));
     
 
-    const HandleChangePageNo = (event, value) => {
+    const handleChangePageNo = (event, value) => {
         setPageNo(value);
         setCurrentUserData(paginate(props.userDatas, pageCountentCount, value))
       }
@@ -33,10 +32,10 @@ function userCardList (props) {
         color="primary" 
         count={Math.ceil(props.userDatas.length / pageCountentCount)}
         page={pageNo}
-        onChange={HandleChangePageNo}
+        onChange={handleChangePageNo}
         />
     ]
 }
 
-export default userCardList
+export default UserCardList
 

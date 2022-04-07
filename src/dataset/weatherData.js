@@ -13,6 +13,7 @@ export const cityLatLon =[
     { name: "광주",lat: 35.835354,lon: 129.263885},
     { name: "대구",lat: 35.866669,lon: 128.600006},
     { name: "대전",lat: 36.351002,lon: 127.385002},
+    { name: "파리",lat: 48.864716,lon: 2.349014},
     
 ]
 
