@@ -16,11 +16,11 @@ function UserCard(props) {
     const [fontColor, setFontColor] = useState(null);
       
     useEffect(() => {
-      const changeFontColor = () => {
-        setFontColor(`rgb(${getRandomInt(0,255)}),rgb(${getRandomInt(0,255)}),rgb(${getRandomInt(0,255)})`)
-      }
-      setInterval(changeFontColor, 1000);
-    },[])
+    const changeFontColor = () => {
+      setFontColor(`rgb(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)})`);
+    };
+    setInterval(changeFontColor, 1000);
+  }, []);
 
     
     return <div key={idx}>
