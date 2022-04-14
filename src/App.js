@@ -69,10 +69,10 @@ function App() {
         
         
         <Grid container spacing={{xs:2, md: 3}} columns={{xs: 4, sm: 8, md: 12}}>
-          <WeatherCard cityName="안양시" />
-          <WeatherCard cityName="서울시" />
-          <WeatherCard cityName="부산시" />
-          
+          <WeatherCard cityName="안양" />
+          <WeatherCard cityName="서울" />
+          <WeatherCard cityName="부산" />
+        
         </Grid>
      
       <Switch

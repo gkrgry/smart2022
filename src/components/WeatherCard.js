@@ -9,12 +9,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 
 function WeatherCard(props) {
     const {cityName} = props;
-    
     const defaultCityName = localStorage.getItem(cityName+'_city') || "부산";
   const [weatherData, setWeatherData] = useState(null);
   const [apiError, setApiError] = useState(null);
@@ -70,6 +68,7 @@ function WeatherCard(props) {
           <FormControl>
           <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
+            <img src={iconUrl} alt="현재날씨 아이콘" />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                 <InputLabel id="selected-city-label">날씨</InputLabel>
