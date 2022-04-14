@@ -8,6 +8,7 @@ import UserCardList from './components/UserCardList';
 import WeatherCard from './components/WeatherCard';
 import Grid from '@mui/material/Grid';
 
+
 const userDatas = makeUserDatas(5000);
 
 
@@ -68,10 +69,10 @@ function App() {
         
         
         <Grid container spacing={{xs:2, md: 3}} columns={{xs: 4, sm: 8, md: 12}}>
-          {[1,2,3,4,5,6,7].map((no) =>{
-            return<WeatherCard id={no} />;
-          })
-          }
+          <WeatherCard cityName="안양시" />
+          <WeatherCard cityName="서울시" />
+          <WeatherCard cityName="부산시" />
+          
         </Grid>
      
       <Switch
