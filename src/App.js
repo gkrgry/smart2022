@@ -7,6 +7,7 @@ import { makeUserDatas } from './Utils';
 import UserCardList from './components/UserCardList';
 import WeatherCard from './components/WeatherCard';
 import Grid from '@mui/material/Grid';
+import TopBar from './components/TopBar';
 
 
 const userDatas = makeUserDatas(5000);
@@ -65,6 +66,7 @@ function App() {
             color: 'text.primary',
             p: 1,
             }}>
+              <TopBar></TopBar>
       <Container maxWidth="lg" sx={{p:1}}>
         
         
