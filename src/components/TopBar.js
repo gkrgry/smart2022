@@ -55,6 +55,7 @@ const checkUser = () => {
         </div>
     }else{
         return <div>
+            {handleLogoutUser}
             <Tooltip title="Open settings">
               <IconButton onClick={handleLoginUser} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
